@@ -29,25 +29,23 @@ export function PortfolioSection() {
   const [selectedCategory, setSelectedCategory] = useState("Semua")
   const [selectedProject, setSelectedProject] = useState<typeof portfolioItems[0] | null>(null)
 
-  const filteredItems = selectedCategory === "Semua" 
-    ? portfolioItems 
+  const filteredItems = selectedCategory === "Semua"
+    ? portfolioItems
     : portfolioItems.filter(item => item.category === selectedCategory)
 
   return (
     <section id="portfolio" className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
             Portfolio
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Koleksi karya dan proyek yang telah saya kerjakan 
+            Koleksi karya dan proyek yang telah saya kerjakan
           </p>
         </div>
 
-        {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {categories.map((category) => (
             <button
@@ -64,7 +62,6 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        {/* Portfolio Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {filteredItems.map((item) => (
             <button
@@ -72,7 +69,6 @@ export function PortfolioSection() {
               onClick={() => setSelectedProject(item)}
               className="group bg-card rounded-xl border border-border overflow-hidden hover:border-primary/30 transition-all duration-300 text-left"
             >
-              {/* Project Image */}
               <div className="aspect-[4/3] relative bg-secondary overflow-hidden">
                 <Image
                   src={item.image}
@@ -87,8 +83,7 @@ export function PortfolioSection() {
                   </span>
                 </div>
               </div>
-              
-              {/* Project Info */}
+
               <div className="p-4">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
@@ -108,22 +103,20 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        {/* Modal */}
         {selectedProject && (
-          <div 
+          <div
             className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setSelectedProject(null)}
           >
-            <div 
+            <div
               className="bg-card rounded-xl border border-border max-w-2xl w-full max-h-[90vh] overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Modal Header */}
               <div className="flex items-center justify-between p-4 border-b border-border">
                 <h3 className="text-lg font-semibold text-foreground">
                   {selectedProject.title}
                 </h3>
-                <button 
+                <button
                   onClick={() => setSelectedProject(null)}
                   className="p-2 hover:bg-secondary rounded-lg transition-colors"
                   aria-label="Close modal"
@@ -131,8 +124,7 @@ export function PortfolioSection() {
                   <X className="w-5 h-5 text-muted-foreground" />
                 </button>
               </div>
-              
-              {/* Modal Content */}
+
               <div className="p-4">
                 <div className="aspect-[4/3] relative bg-secondary rounded-lg overflow-hidden mb-4">
                   <Image

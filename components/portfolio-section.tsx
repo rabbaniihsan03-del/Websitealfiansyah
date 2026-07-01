@@ -104,15 +104,14 @@ export function PortfolioSection() {
         </div>
 
         <div className="flex justify-center mt-10">
-          
-            href={DRIVE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => window.open(DRIVE_LINK, "_blank", "noopener,noreferrer")}
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
           >
             <ExternalLink className="w-4 h-4" />
             <span>Klik disini untuk melihat hasil design saya lebih lengkap</span>
-          </a>
+          </button>
         </div>
 
         {selectedProject && (

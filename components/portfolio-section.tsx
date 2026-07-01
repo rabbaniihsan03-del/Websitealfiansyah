@@ -10,14 +10,16 @@ const portfolioItems = [
     title: "Sleep Mug",
     category: "3D Blender",
     image: "/portfolio/1.jpeg",
-    description: "Desain mug tidur dengan desain unik"
+    description: "Desain mug tidur dengan desain unik",
+    link: "https://drive.google.com/drive/folders/1PniMW1v0DWv8BEsefqP4cX24U-y2_R2L"
   },
   {
     id: 2,
     title: "Futuristic Helmet",
     category: "3D Blender",
     image: "/portfolio/2.jpeg",
-    description: "Desain helm futuristik untuk proyek animasi"
+    description: "Desain helm futuristik untuk proyek animasi",
+    link: "https://drive.google.com/drive/folders/1PniMW1v0DWv8BEsefqP4cX24U-y2_R2L"
   }
 ]
 
@@ -140,11 +142,20 @@ export function PortfolioSection() {
                     className="object-contain"
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
                     {selectedProject.category}
                   </span>
                   <p className="text-muted-foreground">{selectedProject.description}</p>
+                  
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Buka di Google Drive
+                  </a>
                 </div>
               </div>
             </div>

@@ -20,8 +20,8 @@ const contacts = [
   {
     icon: Instagram,
     label: "Instagram",
-    value: "@username",
-    href: "https://instagram.com/username",
+    value: "@fiihsy26_",
+    href: "https://instagram.com/fiihsy26_",
     color: "hover:text-pink-400"
   },
   {

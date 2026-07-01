@@ -22,16 +22,16 @@ const portfolioItems = [
 ]
 
 const categories = ["Semua", "3D Blender"]
-
 const DRIVE_LINK = "https://drive.google.com/drive/folders/1PniMW1v0DWv8BEsefqP4cX24U-y2_R2L"
 
 export function PortfolioSection() {
   const [selectedCategory, setSelectedCategory] = useState("Semua")
   const [selectedProject, setSelectedProject] = useState<typeof portfolioItems[0] | null>(null)
 
-  const filteredItems = selectedCategory === "Semua"
-    ? portfolioItems
-    : portfolioItems.filter(item => item.category === selectedCategory)
+  const filteredItems =
+    selectedCategory === "Semua"
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === selectedCategory)
 
   return (
     <section id="portfolio" className="py-16 md:py-24">
@@ -51,11 +51,11 @@ export function PortfolioSection() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 text-sm rounded-lg transition-colors ${
+              className={
                 selectedCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
-              }`}
+                  ? "px-4 py-2 text-sm rounded-lg transition-colors bg-primary text-primary-foreground"
+                  : "px-4 py-2 text-sm rounded-lg transition-colors bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
+              }
             >
               {category}
             </button>
@@ -103,7 +103,6 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        {/* Tombol khusus menuju Google Drive */}
         <div className="flex justify-center mt-10">
           
             href={DRIVE_LINK}
@@ -112,7 +111,7 @@ export function PortfolioSection() {
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
           >
             <ExternalLink className="w-4 h-4" />
-            Klik disini untuk melihat hasil design saya lebih lengkap
+            <span>Klik disini untuk melihat hasil design saya lebih lengkap</span>
           </a>
         </div>
 
